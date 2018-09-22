@@ -4,8 +4,8 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 
 @Suppress("UNCHECKED_CAST")
-class SecondViewModelFactory(private val api: NetworkApi) : ViewModelProvider.Factory {
+class SecondViewModelFactory(private val repository: SecondRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return SecondViewModel(api) as T
+        return SecondViewModel(repository) as T
     }
 }

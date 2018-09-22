@@ -14,6 +14,7 @@ import kotlinx.android.synthetic.main.fragment_second.view.*
 class SecondFragment : Fragment() {
 
     private val api by lazy { NetworkApi.create() }
+    private val repository by lazy { SecondRepositoryImpl(api) }
 
     private lateinit var viewModelFactory: SecondViewModelFactory
     private lateinit var binding: FragmentSecondBinding
@@ -31,7 +32,7 @@ class SecondFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
-        viewModelFactory = SecondViewModelFactory(api)
+        viewModelFactory = SecondViewModelFactory(repository)
 
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(SecondViewModel::class.java)
 

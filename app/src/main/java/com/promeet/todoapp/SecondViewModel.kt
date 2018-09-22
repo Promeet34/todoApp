@@ -7,7 +7,7 @@ import android.util.Log
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 
-class SecondViewModel(private val api: NetworkApi) : ViewModel() {
+class SecondViewModel(private val repository: SecondRepository) : ViewModel() {
 
     private val composite = CompositeDisposable()
 
@@ -23,7 +23,7 @@ class SecondViewModel(private val api: NetworkApi) : ViewModel() {
     }
 
     private fun getItems() =
-            api.todoApi()
+            repository.getItems()
                     .observeOn(AndroidSchedulers.mainThread())
                     .doOnSuccess {
                         adapter.addItems(it)
