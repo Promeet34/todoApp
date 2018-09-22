@@ -19,7 +19,7 @@
         <ImageView
             android:id="@+id/second_item_iv_imageUrl"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:scaleType="fitXY"
             app:imageUrl="@{viewModel.imageUrl}"
             app:layout_constraintEnd_toEndOf="parent"
