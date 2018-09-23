@@ -32,11 +32,11 @@ class SecondFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
         }
 
-        viewModelFactory = SecondViewModelFactory(repository)
+        viewModelFactory = SecondViewModelFactory(repository) // TODO Dagger
 
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(SecondViewModel::class.java)
 
         binding.viewModel = viewModel
-        binding.setLifecycleOwner(this)
+        binding.setLifecycleOwner(this) // Factory가 필요함
     }
 }
